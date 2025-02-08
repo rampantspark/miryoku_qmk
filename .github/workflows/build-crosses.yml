@@ -1,0 +1,14 @@
+name: "Build 36-key Crosses"
+on:
+    workflow_dispatch:
+        inputs:
+            revision:
+                description: "Keyboard Revision (rev1 or rev2)"
+                required: true
+                default: "rev1"
+
+jobs:
+    build:
+        uses: ./.github/workflows/main.yml
+        with:
+            keyboard: '["gggw/crosses/3x5:${{ github.event.inputs.revision }}"]'
